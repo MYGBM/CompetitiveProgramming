@@ -1,8 +1,8 @@
 from itertools import combinations
 line=input().split()
-s=sorted(line[0])
-keyy=int(line[1])
-for i in range(1,keyy+1):
-    x=list(combinations(s,i))
-    for val in x:
+iterable,r=sorted(line[0]), int(line[1])
+for i in range(1,r+1):
+    value=list(combinations(iterable,i))
+    for val in value:
         print(''.join(val))
+        
