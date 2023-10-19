@@ -1,6 +1,6 @@
 class Solution:
     def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
-        frequency={}
+        frequency={} #auxiliary O(n)
         solution=[] #auxiliary O(n)
 
         for items in arr1: #Time complexity O(n)
@@ -17,14 +17,15 @@ class Solution:
                 frequency.pop(items)
         
         #sort the remaining items
+        #Time complexity O(nlogn)
         remaining=sorted(frequency.keys())
-
-        for items in remaining:
+        for items in remaining: #Time complexity 0(n-k)
             solution.extend([items]*frequency[items])
         return solution
 
-        
 
+#Time O(n+k+nlogn)
+#Space O(n)
             
 
 
