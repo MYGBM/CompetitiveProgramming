@@ -1,16 +1,17 @@
 class Solution:
     def isPalindrome(self,s: str) -> bool:
-        leftPointer=0
-        rightPointer=len(s)-1
-        while leftPointer<rightPointer:
-            # skip over non alphaNumeric characters
-            while leftPointer<rightPointer and not self.alphaNum(s[leftPointer]):
-                leftPointer+=1
-            while rightPointer>leftPointer and not self.alphaNum(s[rightPointer]):
-                rightPointer-=1
+       
 
-            #condition 
-            if s[leftPointer].lower()!=s[rightPointer].lower():
+        #AUxiliary space 0(n) 
+        newS="".join(c for c in s if c.isalnum())
+        newS=newS.lower()
+        
+        #initializing left and rightPointers
+        leftPointer=0
+        rightPointer=len(newS)-1
+
+        while leftPointer<len(newS) and rightPointer>0:
+            if newS[leftPointer]!=newS[rightPointer]:
                 return False 
 
             #increment the values of the pointers
@@ -18,10 +19,6 @@ class Solution:
             rightPointer-=1
         return True
 
-
-    # custom alphaNum function inPlace 
-    def alphaNum(self,character):
-        return(ord("A")<=ord(character)<=ord("Z") or ord("a")<=ord(character)<=ord("z") or ord("0")<=ord(character)<=ord("9"))
            
 
 
