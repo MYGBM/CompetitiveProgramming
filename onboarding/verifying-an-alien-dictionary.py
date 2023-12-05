@@ -1,18 +1,49 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
-        orderInd = { c : i for i, c in enumerate(order)}
+        orderDict = { word : index for index, word in enumerate(order)}
         
-        for i in range(len(words) - 1):
-            w1, w2 = words[i], words[i + 1]
+        
+        for i in range(len(words)-1):
             
-            for j in range(len(w1)):
-                if j == len(w2):
+            j = 0
+            
+            
+            while j<len(words[i]) and j<len(words[i+1]):
+                flag = 0
+              # check words[i][j] and words[i+1][j] in each iteration
+            
+            
+            
+                if words[i][j] != words[i+1][j] and orderDict[words[i][j]] < orderDict[words[i+1][j]]:
+                    flag = 1
+                    
+                    break 
+                    
+                    
+        
+               
+                #handle the case when there is an inequality and order fails 
+                elif  words[i][j] != words[i+1][j] and orderDict[words[i][j]] > orderDict[words[i+1][j]]:
                     return False
                 
-                if w1[j] != w2[j]:
-                    if orderInd[w2[j]] < orderInd[w1[j]]:
-                        return False
-                    break
-        return True
+                elif words[i][j] == words[i+1][j]:
+                    j += 1
+                    
+            
+            if len(words[i]) > len(words[i+1]) and flag == 0:
+                return False
+                
+                # handle case when a word is a subword of another
+                    
+                
 
+        return True
+                
+            
+            
+                
+                
+        
+            
+        
         
