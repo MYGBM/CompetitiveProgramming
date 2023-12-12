@@ -1,12 +1,12 @@
 class Solution:
-    def kidsWithCandies(self, candies, extraCandies):
-        # Find out the greatest number of candies among all the kids.
-        maxCandies = max(candies)
-        # For each kid, check if they will have greatest number of candies
-        # among all the kids.
-        result = []
-        for i in range(len(candies)):            
-            result.append(candies[i] + extraCandies >= maxCandies)
-        return result
-        
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        maxCandy = max(candies)
+        # print(maxCandy)
+        output = []
+        for candy in candies:
+            if candy+extraCandies >= maxCandy:
+                output.append(True)
+            else:
+                output.append(False)
+        return output
         
