@@ -1,16 +1,19 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        min_window_size=10**6
-        current_window_sum=0
-        window_start=0
+        left = 0
+        mini = 10**6
+        total = 0
+        
 
-        for window_end in range(len(nums)):
-            current_window_sum+=nums[window_end]
+        for right in range(len(nums)):
+            total += nums[right]
 
-            while current_window_sum>=target:
-                min_window_size=min(min_window_size,window_end-window_start+1)
-                current_window_sum-=nums[window_start]
-                window_start+=1
-
-        return 0 if min_window_size==10**6 else min_window_size
+            while total >=target:
+                mini = min(mini,right-left+1)
+                total -= nums[left]
+                left+=1
+            
+        return 0 if mini==10**6 else mini
+                
+            
         
