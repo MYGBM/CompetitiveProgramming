@@ -1,18 +1,9 @@
 class Solution:
-    def minimumSteps(self,  s: str) -> int:
-        ones = []
-        res = 0
-        for idx,char in enumerate(s):
-            if char=="1":
-                ones.append(idx)
+    def minimumSteps(self, s: str) -> int:
+        count = 0 #always count idx2-idx1
+        idx = len(s)-1 #create a partition to place the ones at the end
         for i in range(len(s)-1,-1,-1):
-                if ones:
-                    res+= abs(i-ones[-1])
-                    ones.pop()
-        return res
-
-
-        
-        
-
-
+            if s[i]=="1":
+                count+=abs(i-idx)
+                idx-=1
+        return count
