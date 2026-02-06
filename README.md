@@ -1,5 +1,6 @@
 # CompetitiveProgramming
-
+## My Achievements 
+<img width="900" height="1602" alt="Image" src="https://github.com/user-attachments/assets/be491e0d-d2b0-4fbb-bf5f-f6211fc4bfb7" />
 A curated collection of competitive programming solutions and practice problems, spanning platforms like LeetCode, HackerRank, Codeforces, and GeeksforGeeks. This repository is organized to make it easy to browse problems by ID, revisit fundamental algorithms, and track learning progress.
 
 ## ✨ What’s Inside
